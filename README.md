@@ -1,1 +1,3 @@
-# codespaces-try-nextjs
+# Next.js
+
+Next.js starter
