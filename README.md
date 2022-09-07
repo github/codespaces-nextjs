@@ -1,3 +1,5 @@
 # Next.js
 
-Next.js starter
+```
+npm run dev
+```
