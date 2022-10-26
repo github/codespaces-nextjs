@@ -1,4 +1,21 @@
 {
+    "postAttachCommand": {
+      "server": "npm run dev",
+    },
+
+    "portsAttributes": {
+      "3000": {
+        "label": "Application",
+        "onAutoForward": "openPreview"
+      }
+    },
+
+    "customizations": {
+      "codespaces": {
+        "openFiles": ["pages/index.js"]
+      }
+    },
     "onCreateCommand": "npm install && npm run build",
-    "postCreateCommand": ""
-}
+    "postCreateCommand": "",
+    "hostRequirements": {"cpus": 4}
+  }
