@@ -1,21 +1,24 @@
 {
-    "postAttachCommand": {
-      "server": "npm run dev",
-    },
-
-    "portsAttributes": {
-      "3000": {
-        "label": "Application",
-        "onAutoForward": "openPreview"
-      }
-    },
-
-    "customizations": {
-      "codespaces": {
-        "openFiles": ["pages/index.js"]
-      }
-    },
-    "onCreateCommand": "npm install && npm run build",
-    "postCreateCommand": "",
-    "hostRequirements": {"cpus": 4}
+  "hostRequirements": {
+    "cpus": 4
+  },
+  "waitFor": "onCreateCommand",
+  "updateContentCommand": "npm install && npm run build",
+  "postCreateCommand": "",
+  "postAttachCommand": {
+    "server": "npm run dev"
+  },
+  "customizations": {
+    "codespaces": {
+      "openFiles": [
+        "pages/index.js"
+      ]
+    }
+  },
+  "portsAttributes": {
+    "3000": {
+      "label": "Application",
+      "onAutoForward": "openPreview"
+    }
   }
+}
