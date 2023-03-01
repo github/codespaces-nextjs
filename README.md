@@ -11,3 +11,9 @@ To run this application:
 ```
 npm run dev
 ```
+
+## Next.js
+
+You can found the Next.js documentation [here](https://nextjs.org/docs).
+
+And their learn Next.js in their [Next.js tutorial](https://nextjs.org/learn/basics/create-nextjs-app).
