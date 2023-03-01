@@ -12,7 +12,7 @@
   "customizations": {
     "codespaces": {
       "openFiles": [
-        "pages/index.js"
+        "src/pages/index.tsx"
       ]
     }
   },
