@@ -1,71 +1,90 @@
-import { useCallback, useEffect, useState } from 'react'
-import Button from '../components/Button'
-import ClickCount from '../components/ClickCount'
-import styles from '../styles/home.module.css'
+/*
+Create a HomePage Component with the following specifications:
+1. A H1 with the text "Find Nutrition Facts for any recipe"
+2. Create a text area and a button. When the button is clicked, the text in the text area should be sent to the server as a POST request.
+3. The server should respond with the nutrition facts for the recipe below the text area.
+*/
 
-function throwError() {
-  console.log(
-    // The function body() is not defined
-    document.body()
-  )
-}
+import React, { useState } from "react";
+import {
+  Button,
+  Container,
+  Grid,
+  Paper,
+  TextareaAutosize,
+  Typography,
+} from "@material-ui/core";
+import { Send } from "@material-ui/icons";
 
-function Home() {
-  const [count, setCount] = useState(0)
-  const increment = useCallback(() => {
-    setCount((v) => v + 1)
-  }, [setCount])
+const HomePage = () => {
+  const [recipe, setRecipe] = useState("");
+  const [nutrition, setNutrition] = useState("");
+  const [error, setError] = useState("");
 
-  useEffect(() => {
-    const r = setInterval(() => {
-      increment()
-    }, 1000)
-
-    return () => {
-      clearInterval(r)
+  async function handleSubmit(event) {
+    event.preventDefault();
+    try {
+      const response = await fetch("http://localhost:8080/openai/generateinfo", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ recipe }),
+      });
+      const nutrition = await response.json();
+      console.log(nutrition.data);
+      setNutrition(nutrition.data);
+    } catch (error) {
+      setError(error);
     }
-  }, [increment])
+  }
 
   return (
-    <main className={styles.main}>
-      <h1>Fast Refresh Demo</h1>
-      <p>
-        Fast Refresh is a Next.js feature that gives you instantaneous feedback
-        on edits made to your React components, without ever losing component
-        state.
-      </p>
-      <hr className={styles.hr} />
-      <div>
-        <p>
-          Auto incrementing value. The counter won't reset after edits or if
-          there are errors.
-        </p>
-        <p>Current value: {count}</p>
+    <Container maxWidth="md">
+      <Typography variant="h2" gutterBottom>
+        Find Nutrition Facts for any recipe{" "}
+      </Typography>
+      <Paper elevation={24} style={{ padding: "20px" }}>
+        <form onSubmit={handleSubmit}>
+          <Grid container spacing={2}>
+            <Grid item xs={12}>
+              <TextareaAutosize
+                value={recipe}
+                onChange={(e) => setRecipe(e.target.value)}
+                placeholder="Enter recipe"
+                style={{ width: "98%", minHeight: "200px", padding: "10px" }}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <Button
+                type="submit"
+                variant="contained"
+                color="primary"
+                startIcon={<Send />}
+              >
+                Submit
+              </Button>
+            </Grid>
+          </Grid>
+        </form>
+      </Paper>
+      <div style={{ paddingTop: "20px" }}>
+        {
+          error ? (
+            <Typography color="error">
+              An error occurred: {error.errorMessage}
+            </Typography>
+          ) : (
+            nutrition ? (
+              <>
+              <Typography>{nutrition}</Typography>
+              </>
+            ) : "nothing to see here"
+          )
+        }
       </div>
-      <hr className={styles.hr} />
-      <div>
-        <p>Component with state.</p>
-        <ClickCount />
-      </div>
-      <hr className={styles.hr} />
-      <div>
-        <p>
-          The button below will throw 2 errors. You'll see the error overlay to
-          let you know about the errors but it won't break the page or reset
-          your state.
-        </p>
-        <Button
-          onClick={(e) => {
-            setTimeout(() => document.parentNode(), 0)
-            throwError()
-          }}
-        >
-          Throw an Error
-        </Button>
-      </div>
-      <hr className={styles.hr} />
-    </main>
-  )
-}
+    </Container>
+  );
+};
 
-export default Home
+export default HomePage;

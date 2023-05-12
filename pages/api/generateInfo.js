@@ -34,6 +34,7 @@ const generateInfo = async (req, res) => {
 
        // get response from openai
          const response = completion.data.choices[0].text;
+         res.setHeader("Access-Control-Allow-Origin", "*")
        
         res.status(200).json({
             success: true,
@@ -47,7 +48,7 @@ const generateInfo = async (req, res) => {
             console.log(error.message);
           }
           
-        res.status(400).json({
+        res.status(500).json({
             success: false,
             errorMessage: "There was an error getting the nutritional information. Try again",
             error: error
