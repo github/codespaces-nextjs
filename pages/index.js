@@ -28,9 +28,9 @@ import {
   Typography,
 } from "@material-ui/core";
 import { Send } from "@material-ui/icons";
-import Header from "../components/header";
+import Header from "../components/Header";
 
-const HomePage = () => {
+function HomePage() {
   const [recipe, setRecipe] = useState("");
   const [nutrition, setNutrition] = useState("");
   const [error, setError] = useState("");
@@ -89,8 +89,7 @@ const HomePage = () => {
                   value={recipe}
                   onChange={(e) => setRecipe(e.target.value)}
                   placeholder="Enter recipe to get nutrition facts"
-                  style={{ width: "98%", maxWidth: "850px", minHeight: "200px", padding: "10px" }}
-                />
+                  style={{ width: "98%", maxWidth: "850px", minHeight: "200px", padding: "10px" }} />
               </Grid>
               <Grid item xs={12}>
                 <Button
@@ -133,6 +132,6 @@ const HomePage = () => {
       </Container>
     </>
   );
-};
+}
 
 export default HomePage;
