@@ -1,0 +1,87 @@
+.container {
+  text-align: center;
+  margin: 0 auto;
+  padding: 20px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  color: #fff;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+.title {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.score {
+  font-size: 1.5em;
+  margin: 10px 0;
+}
+
+.progressBar {
+  margin: 20px 0;
+  width: 80%;
+}
+
+.startButton, .tapButton, .continueButton {
+  font-size: 1.2em;
+  padding: 15px;
+  margin: 20px;
+  cursor: pointer;
+  border: none;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.startButton:hover, .tapButton:hover, .continueButton:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.tapButton:active {
+  animation: glow 0.5s ease, fadeOut 0.5s ease;
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px #fff;
+  }
+  50% {
+    box-shadow: 0 0 20px #fff;
+  }
+  100% {
+    box-shadow: 0 0 5px #fff;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.7;
+  }
+}
+
+.prompt {
+  margin-top: 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.results {
+  margin-top: 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1.2em;
+}
