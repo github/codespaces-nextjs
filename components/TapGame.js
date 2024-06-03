@@ -18,6 +18,7 @@ const TapGame = () => {
   const [recentDeduct, setRecentDeduct] = useState(0); // Track recent deduction
   const [recentTimeIncrease, setRecentTimeIncrease] = useState(0); // Track recent time increase
   const [playSound, setPlaySound] = useState(false);
+  
 
   useEffect(() => {
     let timer;
