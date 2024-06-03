@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { ProgressBar } from 'react-bootstrap';
 import GameResult from './GameResult';
 import styles from './TapGame.module.css';
-// import ReactSound from 'react-sound';
+
 
 const TapGame = () => {
   const [score, setScore] = useState(0);
@@ -113,11 +113,6 @@ const TapGame = () => {
   return (
     <div className={styles.container}>
 
-        {/* <ReactSound
-          url="/path/to/soundfile.mp3" // Path to your sound file
-          playStatus={playSound ? ReactSound.status.PLAYING : ReactSound.status.STOPPED} // Play sound when playSound state is true
-          volume={50} // Adjust volume as needed
-        /> */}
       <h1 className={styles.title}>Tap Game</h1>
       {!showResults ? (
         <>
