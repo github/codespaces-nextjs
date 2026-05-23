@@ -1,0 +1,25 @@
+
+How Ad Rank is determined
+ impact from your ad assets and other ad formats - When you create your ad, you have the option to add additional information to your ad, such as a phone number, or more links to specific pages on your site. These are called ad assets. Google Ads estimates how assets and other ad formats you use will impact your ad's performance.
+Example
+Here’s a simplified example of how Ad Rank works. It doesn’t account for all of the factors discussed above, but instead aims to give you a high-level overview of our algorithms:
+
+Assume that the respective Ad Rank of each of the advertisers is 80, 50, 30, 10, -10, -30, and -35.
+
+Let’s assume the minimum Ad Rank to show anywhere on search results pages is 0, then the last 3 advertisers whose ads have scores of -10,-30 and -35 are ineligible to show in any position on the page.
+
+Secondly, if the minimum Ad Rank necessary to show in the top ad location (generally above search results) is 40, only the first two advertisers (whose ads have Ad Ranks of 80 and 50) exceed the minimum and can show above the search results.
+
+However, the advertisers whose ads have Ad Ranks of 30 and 10 are eligible to show in ad locations lower down the page.
+
+For top and absolute top metrics, the advertiser with an Ad Rank of 80 (in the first position within the top ad location) will have 1 impression counting both for top and absolute top. The advertiser with Ad Rank of 50 (in the second position within the top ad location) will have 1 impression on top. The advertiser with an Ad Rank of 30 (in the first position below the search results) will have 0 impressions on top or absolute top, same as the advertiser with an Ad Rank of 10 (in the second position below search results).
+
+ 	Ad Rank	Impr. on absolute top	Impr. on top	Impr. (Abs top) %	Impr. (top) %
+Advertiser A	80	1	1	100%	100%
+Advertiser B	50	0	1	0%	100%
+Advertiser C	30	0	0	0%	0%
+Advertiser D	10	0	0	0%	0%
+To improve your share of the top and absolute top location on the search result page, you can:
+
+Improve the quality of your ads and landing page experience
+Increase your bid
